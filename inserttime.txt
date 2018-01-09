@@ -1,0 +1,4 @@
+time taken to insert 6.707098960876465
+time taken to insert 72.2395167350769
+time taken to insert 1074.0874996185303
+

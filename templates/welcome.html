@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Welcome</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript">
+	var x=document.getElementById('name');
+	x.style.display=none;
+	var y=document.getElementById('email');
+	y.style.display=none;
+	var z=document.getElementById('password');
+	z.style.display=none;
+</script>
+<script type="text/javascript">
+	function show(element){
+		var x=document.getElementById(element);
+		if(x.style.display==none)
+			x.style.display=block;
+		else
+			x.style.display=none;
+}
+</script>
+</head>
+<body>
+{% if session['logged_in']  %}
+<p>Welcome {{ session['user'] }} </p><br>
+<p>{{ session['time'] }}</p>
+<a href="logout"><button style="float:right" class="btn">Logout</button></a>
+<button class="btn-small">Name</button> <input type="text" style="none" value="{{ session['user'] }}" disabled="" ><a href ="{{ url_for('edit', my_var='name') }}"><button onClick="show()">edit</button></a>
+<button class="btn-small">EMail</button> <input type="text" value="{{ session['email'] }}" disabled><a href ="{{ url_for('edit', my_var='email') }}">edit</a>
+<button class="btn-small">Password</button><input type="Password" value="{{ session['password'] }}" disabled><a href ="{{ url_for('edit', my_var='password') }}">edit</a>
+{% else %}
+
+<p>click here to <a href="login">login</a> </p>
+
+</body>
+</html>
+{% endif %}
